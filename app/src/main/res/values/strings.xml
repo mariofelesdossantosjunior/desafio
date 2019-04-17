@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">desafio-juno</string>
+    <string name="action_settings">Settings</string>
+    <string name="search">Pesquisar</string>
+    <string name="name">Nome</string>
+    <string name="description">Descrição</string>
+    <string name="star">Estrelas</string>
+    <string name="hour_update">Atualziado</string>
+    <string name="fork_number">Forks</string>
+    <string name="language">Linguagem: %s</string>
+</resources>

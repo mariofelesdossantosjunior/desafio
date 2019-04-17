@@ -1,0 +1,94 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.mario.desafiojuno"
+        minSdkVersion 20
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+// Add for using latest experimental build of Android Extensions
+androidExtensions {
+    experimental = true
+}
+
+dependencies {
+    def ktxVersion = "1.1.0-alpha05"
+    def constraintLayoutVersion = "1.1.2"
+    def supportVersion = "27.1.1"
+    def roomVersion = "1.1.1"
+    def rxjavaVersion = "2.1.1"
+    def rxAndroidVersion = "2.1.1"
+    def koinVersion = "2.0.0-rc-2"
+    def retrofit2Version = "2.3.0"
+    def okhttp3Version = "3.11.0"
+    def frescoVersion = "1.13.0"
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "com.android.support:appcompat-v7:$supportVersion"
+    implementation "com.android.support:design:$supportVersion"
+    implementation "com.android.support.constraint:constraint-layout:$constraintLayoutVersion"
+    implementation "com.android.support:cardview-v7:$supportVersion"
+    implementation "com.android.support:support-vector-drawable:$supportVersion"
+    implementation "com.android.support:design:$supportVersion"
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.0.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    //KTX
+    implementation "androidx.core:core-ktx:$ktxVersion"
+
+    //Room
+    implementation "android.arch.persistence.room:runtime:$roomVersion"
+    kapt "android.arch.persistence.room:compiler:$roomVersion"
+    implementation "android.arch.persistence.room:rxjava2:$roomVersion"
+
+
+    //LifeCycle
+    implementation "android.arch.lifecycle:extensions:$roomVersion"
+
+    //RxJava & RxAndroid
+    implementation "io.reactivex.rxjava2:rxjava:$rxjavaVersion"
+    implementation "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
+
+    // Koin for Android
+    implementation "org.koin:koin-androidx-scope:$koinVersion"
+    implementation "org.koin:koin-androidx-viewmodel:$koinVersion"
+
+    //Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofit2Version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit2Version"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit2Version"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp3Version"
+
+    //Fresco
+    implementation "com.facebook.fresco:fresco:$frescoVersion"
+
+    //Debug Database
+    debugImplementation 'com.amitshekhar.android:debug-db:1.0.6'
+}
