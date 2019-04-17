@@ -23,6 +23,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    useLibrary 'android.test.runner'
+    useLibrary 'android.test.base'
+    useLibrary 'android.test.mock'
 }
 
 // Add for using latest experimental build of Android Extensions
@@ -42,6 +46,14 @@ dependencies {
     def okhttp3Version = "3.11.0"
     def frescoVersion = "1.13.0"
 
+    def jUnitVersion = '4.12'
+    def runnerVersion = '1.1.2-alpha01'
+    def expressoVersion = '3.1.2-alpha01'
+    def mockitoVersion = '2.24.5'
+    def coreTestingVersion = "1.1.1"
+    def androidXTest = "1.1.0"
+
+
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation "com.android.support:appcompat-v7:$supportVersion"
@@ -56,9 +68,6 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.0.0'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
     //KTX
     implementation "androidx.core:core-ktx:$ktxVersion"
@@ -91,4 +100,20 @@ dependencies {
 
     //Debug Database
     debugImplementation 'com.amitshekhar.android:debug-db:1.0.6'
+
+
+    testImplementation "junit:junit:$jUnitVersion"
+    testImplementation "org.mockito:mockito-inline:$mockitoVersion"
+    androidTestImplementation "android.arch.core:core-testing:$coreTestingVersion"
+
+    androidTestImplementation "org.koin:koin-test:$koinVersion"
+
+    androidTestImplementation "androidx.test:core:$androidXTest"
+    androidTestImplementation "androidx.test:runner:$androidXTest"
+    androidTestImplementation "androidx.test:rules:$androidXTest"
+    androidTestImplementation "androidx.test.ext:junit:$androidXTest"
+
+    androidTestImplementation "androidx.test.espresso:espresso-core:$expressoVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-contrib:$expressoVersion"
+
 }
